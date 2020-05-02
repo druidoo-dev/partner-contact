@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_parnter_label">
+        <t t-call="web.basic_layout">
+            <t t-set="add_remaining" t-value="len(docs)%14" />
+            <t t-foreach="range(int(len(docs)/14)+1)" t-as="partner_row">
+                <t
+                    t-set="partners"
+                    t-value="docs[(partner_row_index*14):(partner_row_index*14)+14]"
+                />
+                <div class="page">
+                    <t t-foreach="range(7)" t-as="partner_column">
+                        <t
+                            t-set="partner"
+                            t-value="partners[(partner_column_index*2):(partner_column_index*7)+7]"
+                        />
+                        <div
+                            class="row no-gutters"
+                            t-attf-style="#{'padding-top:7px' if partner_column_index == 1 else '' }"
+                        >
+                            <t t-foreach="partner" t-as="o">
+                                <div
+                                    class="col-6 text-center"
+                                    t-attf-style="padding-top: 25mm;margin-right:10mm;"
+                                >
+                                    <div
+                                        class="col-12 mt-3 text-left"
+                                        t-attf-style="font-size: 25px; margin-left: 10mm; margin-top: 25mm;"
+                                    >
+                                        <span t-field="o.name" />
+                                        <br />
+                                        <span t-field="o.street" />
+                                        <span t-field="o.street2" />
+                                        <br />
+                                        <span t-field="o.city" />
+                                        <span t-field="o.state_id" />
+                                        <br />
+                                        <span t-field="o.zip" />
+                                        <span t-field="o.country_id" />
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <p style="page-break-after:always" />
+                </div>
+            </t>
+        </t>
+    </template>
+    <report
+        id="action_report_partner_label"
+        model="res.partner"
+        string="Print Label"
+        name="partner_label_report.report_parnter_label"
+        file="partner_label_report.report_parnter_label"
+        report_type="qweb-pdf"
+    />
+    <record
+        id="partner_label_report.paperformat_partner_label"
+        model="report.paperformat"
+    >
+        <field
+            name="report_ids"
+            eval="[(4, ref('partner_label_report.action_report_partner_label'))]"
+        />
+    </record>
+</odoo>
