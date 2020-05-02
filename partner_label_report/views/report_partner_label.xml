@@ -56,7 +56,7 @@
         report_type="qweb-pdf"
     />
     <record
-        id="partner_label_report.paperformat_partner_label"
+        id="partner_label_report.partner_label_paperformat"
         model="report.paperformat"
     >
         <field
