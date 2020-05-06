@@ -23,9 +23,11 @@ Contact's Partner Report
     :target: https://runbot.odoo-community.org/runbot/116/13.0
     :alt: Try me on Runbot
 
-|badge1| |badge2| |badge3| |badge4| |badge5| 
+|badge1| |badge2| |badge3| |badge4| |badge5|
 
-Adds and computes age field on employee
+Adds a label report on partners, to be used for instance in enveloppes or badges.
+
+.. image:: /partner_label_report/static/description/report.png
 
 **Table of contents**
 
@@ -46,7 +48,14 @@ To install this module, you need to:
 Usage
 =====
 
-Print Partner Label report
+Go to Contacts / Partners
+
+Select the partners you want to print
+
+Click on Print > Label report
+
+.. image:: /partner_label_report/static/description/contacts.png
+
 
 Bug Tracker
 ===========

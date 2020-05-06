@@ -10,6 +10,6 @@
     "category": "Customer Relationship Management",
     "summary": "Print Partner Label Report",
     "depends": ["contacts"],
-    "data": ["data/paperformat_data.xml", "views/report_partner_label.xml"],
+    "data": ["data/paperformat_data.xml", "report/report_partner_label.xml"],
     "installable": True,
 }
